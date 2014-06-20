@@ -26,6 +26,34 @@ import numpy
 import requests
 import yaml
 import state_dict
+import bs4
+
+def get_regions(param_dict):
+    """
+    Calls the `GetRegionChildren API_
+    <http://www.zillow.com/howto/api/GetRegionChildren.htm>`
+
+    :ARGS:
+
+        param_dict: :class:`dictionary` with the following parameters
+
+             {'zws-id', 'state', 'city'}
+    """
+    #params = {'zws-id':'X1-ZWz1b5tnui3x8r_3pg0i', 'state':'ny', 'city':'New York'
+    param_dict['childtype'] = 'neighborhood'
+    s = requests.get('http://www.zillow.com/webservice/GetRegionChildren.htm?',
+                        params = param_dict)
+
+    #now use BeautifulSoup to parse the xml
+    soup = bs4.BeautifulSoup(s.content, ['lxml', 'xml'])
+    tags = {'id': [], 'name': [], 'zindex': [], 'latitude':[], 'longitude':[]}
+    for tag in tags:
+        tmp = soup.findAll(tag)
+        tags[tag] = map(lambda x: x.string, tmp)
+
+    import pdb
+    pdb.set_trace()
+    return pandas.DataFrame(tags)
 
 def get_state_abreviation(state_name):
     """
@@ -74,9 +102,6 @@ def config_dict(path):
     """
     f = open(path)
     return yaml.load(f)
-
-def get_regions(states = None):
-    return None
         
 
 def scipt_function(arg_1, arg_2):
