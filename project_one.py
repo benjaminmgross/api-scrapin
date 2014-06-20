@@ -25,6 +25,17 @@ import pandas
 import numpy
 import requests
 import yaml
+import state_dict
+
+def get_state_abreviation(state_name):
+    """
+    The state dictionary has pairings ('abreviatio', 'state'), this
+    returs the abreviation for a given value
+    """
+    for key, value in state_dict.states.iteritems():
+        if value == state_name:
+            return key
+    return "Unable to find that State"
 
 def get_n_largest(n = 15):
     """
