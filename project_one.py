@@ -26,18 +26,46 @@ import numpy
 import requests
 import yaml
 
+def get_n_largest(n = 15):
+    """
+    Access the wikipedia page `List of US Cities by Population_
+    <http://en.wikipedia.org/wiki/List_of_United_States_cities_by_population>`
+    and pull in the n largest into :class:`pandas.DataFrame`
+    """
+    url = 'http://en.wikipedia.org/wiki/List_of_United_States_cities_by_population'
+    table_list = pandas.read_html(url)
+
+    #anonymous function to 'remove footnotes'
+    rem_fn = lambda arr: map(lambda x: x.split('[')[0], arr)
+    
+    #by inspection, the 2nd table is the one we're after
+    us_cities = table_list[1]
+    
+    #remove the 
+    us_cities.columns = rem_fn(us_cities.iloc[0, :])
+    us_cities = us_cities.iloc[1:, :]
+
+    #format the population and City
+    us_cities['2013 estimate'] = map(
+        lambda x: float(x.split()[1].replace(',' , '')),
+        us_cities['2013 estimate'])
+
+    us_cities['City'] = rem_fn(us_cities['City'])
+    
+    cols = ['2013 rank', 'City', 'State', '2013 estimate']
+    return us_cities.ix[:n, cols]
 
 def config_dict(path):
     """
-    Load your configuration file to do the API calls into a dictionary.  The
-    remainder of the functions assume a{'website':{'username': , 'OAthToken'}}
-    pairing
+    Load your configuration file to do the API calls into a dictionary.
+    The remainder of the functions assume a{'website':{'username': ,
+    'OAthToken': }} pairing
     """
     f = open(path)
     return yaml.load(f)
 
 def get_regions(states = None):
-    if states:
+    return None
         
 
 def scipt_function(arg_1, arg_2):
