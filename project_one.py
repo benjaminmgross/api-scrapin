@@ -36,6 +36,42 @@ import requests
 import yaml
 import state_dict
 import bs4
+from collections import Counter
+
+def extract_tags(tag_list):
+    """
+    Take in a list of :class:`bs4.element.Tag` and returns the
+    Union of the majority of tag.names as a dictionary to then
+    iterate over
+
+    :ARGS:
+    
+        tag_list: :class:`list` of `bs4.element.Tag`
+
+    :RETURNS:
+    
+        key: :class:`string` the name of the tag that should be 
+        used as the "key" (ie appears in all of the list values)
+
+        tags: :class:`list` the remaining tags that should be used to
+        to append to the dictionary
+    """
+    master = []
+    agg = []
+    for tag in soup_list:
+        tmp = map(lambda x: x.name, tag.findChildren())
+        agg.extend(tmp)
+        if len(tmp) > len(master):
+            master = tmp
+    #get the occurrences
+    counts = Counter(agg)
+    max_val = max(counts.values())
+    max_keys = [key if value == max_val else "" for key, value in counts.iteritems()]
+    if 'id' not in max_keys:
+        print "id was not an appropriate hash key"
+        return
+    else:
+        return counts
 
 def get_regions(param_dict):
     """
@@ -57,12 +93,13 @@ def get_regions(param_dict):
     soup = bs4.BeautifulSoup(s.content, ['lxml', 'xml'])
     
     #extract into a list of "regions"
-    l = soup.findChildren('region')
-    tags = extract_likely_tags(l)
+    soup_list = soup.findChildren('region')
+    tag_dict = extract_likely_tags(l)
+    d = {}
     for line in l:
         map(lambda x: tags[x.name].append(unicode(x.text))
     
-    tags = {'id': [], 'name': [], 'zindex': [], 'latitude':[], 'longitude':[]}
+
     for tag in tags:
         tmp = soup.findAll(tag)
         tags[tag] = map(lambda x: x.string, tmp)
