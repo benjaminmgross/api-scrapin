@@ -63,7 +63,8 @@ def extract_tags(tag_list):
         agg.extend(tmp)
         if len(tmp) > len(master):
             master = tmp
-    #get the occurrences
+
+    #get the occurrences and make sure 'id' is an approprate hash key
     counts = Counter(agg)
     max_val = max(counts.values())
     max_keys = [key if value == max_val else "" for key, value in counts.iteritems()]
@@ -97,16 +98,12 @@ def get_regions(param_dict):
     tag_dict = extract_likely_tags(l)
     d = {}
     for line in l:
-        map(lambda x: tags[x.name].append(unicode(x.text))
-    
+        key = line.findChild('id').text
+        vals = map(lambda x: x.text, line.findChildren())
+        ind = map(lambda x: x.name, line.findChildren())
+        d[key] = pandas.Series(vals, index = ind)
 
-    for tag in tags:
-        tmp = soup.findAll(tag)
-        tags[tag] = map(lambda x: x.string, tmp)
-
-    import pdb
-    pdb.set_trace()
-    return pandas.DataFrame(tags)
+    return pandas.DataFrame(d)
 
 def get_state_abreviation(state_name):
     """
