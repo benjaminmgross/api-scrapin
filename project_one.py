@@ -58,7 +58,7 @@ def extract_tags(tag_list):
     """
     master = []
     agg = []
-    for tag in soup_list:
+    for tag in tag_list:
         tmp = map(lambda x: x.name, tag.findChildren())
         agg.extend(tmp)
         if len(tmp) > len(master):
@@ -74,7 +74,34 @@ def extract_tags(tag_list):
     else:
         return counts
 
-def get_regions(param_dict):
+def aggregate_city_data(n, zwsid):
+    """
+    Return joined dataframes from the 'n' biggest cities in the 
+    United States
+    
+    :ARGS:
+     
+        n: :class:`int` of the number of cities you would like to 
+        return aggregated data for
+    
+    :RETURNS:
+
+        a :class:`pandas.DataFrame` with all of the neighborhoods,
+        median housing prices, longitude & latitude, etc.
+    """
+    #DataFrame of the n largest cities
+    n_df = largest_cities(n)
+    df_list = []
+    for ind in n_df.index:
+        city, state = n_df.loc[ind, ['City', 'State']]
+        params = {'zws-id':zwsid, 
+                  'state': state_abreviation(state), 
+                  'city':city}
+        df_list.append(regional_data(params))
+
+    return pandas.concat(df_list, axis = 0)
+
+def regional_data(param_dict):
     """
     Calls the `GetRegionChildren API_
     <http://www.zillow.com/howto/api/GetRegionChildren.htm>`
@@ -85,7 +112,6 @@ def get_regions(param_dict):
 
              {'zws-id', 'state', 'city'}
     """
-    #params = {'zws-id':'X1-ZWz1b5tnui3x8r_3pg0i', 'state':'ny', 'city':'New York'
     param_dict['childtype'] = 'neighborhood'
     s = requests.get('http://www.zillow.com/webservice/GetRegionChildren.htm?',
                         params = param_dict)
@@ -95,17 +121,18 @@ def get_regions(param_dict):
     
     #extract into a list of "regions"
     soup_list = soup.findChildren('region')
-    tag_dict = extract_likely_tags(l)
+    tag_dict = extract_tags(soup_list)
     d = {}
-    for line in l:
+    for line in soup_list:
         key = line.findChild('id').text
         vals = map(lambda x: x.text, line.findChildren())
+        vals.extend([param_dict['city'] + ' ' + param_dict['state']])
         ind = map(lambda x: x.name, line.findChildren())
+        ind.extend(['city-state'])
         d[key] = pandas.Series(vals, index = ind)
+    return pandas.DataFrame(d).transpose()
 
-    return pandas.DataFrame(d)
-
-def get_state_abreviation(state_name):
+def state_abreviation(state_name):
     """
     The state dictionary has pairings ('abreviatio', 'state'), this
     returs the abreviation for a given value
@@ -115,7 +142,7 @@ def get_state_abreviation(state_name):
             return key
     return "Unable to find that State"
 
-def get_n_largest(n = 15):
+def largest_cities(n = 15):
     """
     Access the wikipedia page `List of US Cities by Population_
     <http://en.wikipedia.org/wiki/List_of_United_States_cities_by_population>`
