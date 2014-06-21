@@ -9,14 +9,23 @@ from `Zillow`<http://www.zillow.com/howto/api/GetRegionChart.htm>
 
 GetRegionChart API
 
-The GetRegionChart API generates a URL for an image file that displays the historical Zestimates for a specific geographic region. The API accepts as input the name of the region as well as a chart type: either percentage or dollar value change. Optionally, the API accepts width and height parameters that constrain the size of the image. The historical data can be for the past 1 year, 5 years or 10 years.
+The GetRegionChart API generates a URL for an image file that displays 
+the historical Zestimates for a specific geographic region. The API 
+accepts as input the name of the region as well as a chart type: either 
+percentage or dollar value change. Optionally, the API accepts width 
+and height parameters that constrain the size of the image. The 
+historical data can be for the past 1 year, 5 years or 10 years.
 
 General thought process:
 
-Retrieve Region information from the `Get Region Children API`_<http://www.zillow.com/howto/api/GetRegionChildren.htm>, and then, for each of
-those regions, get a region chart displaying historical data for the past 10 years
+Retrieve Region information from the `Get Region Children API`
+_<http://www.zillow.com/howto/api/GetRegionChildren.htm>, and then, for 
+each ofthose regions, get a region chart displaying historical data for 
+the past 10 years
 
-Also go to `Get Demographics API_<http://www.zillow.com/howto/api/GetDemographics.htm>` and get certain demographic information about the area as well.
+Also go to `Get Demographics API
+_<http://www.zillow.com/howto/api/GetDemographics.htm>` and get certain 
+demographic information about the area as well.
 
 """
 
@@ -46,6 +55,13 @@ def get_regions(param_dict):
 
     #now use BeautifulSoup to parse the xml
     soup = bs4.BeautifulSoup(s.content, ['lxml', 'xml'])
+    
+    #extract into a list of "regions"
+    l = soup.findChildren('region')
+    tags = extract_likely_tags(l)
+    for line in l:
+        map(lambda x: tags[x.name].append(unicode(x.text))
+    
     tags = {'id': [], 'name': [], 'zindex': [], 'latitude':[], 'longitude':[]}
     for tag in tags:
         tmp = soup.findAll(tag)
