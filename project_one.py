@@ -77,10 +77,13 @@ def demographics_from_id(regionid, zwsid):
     data = soup.findChild('attribute')
     d = {}
     for item in data:
-        s = item.findChild('name').text
-        d[s + ' neighborhood'] = clean_val(item.findChild('neighborhood'))
-        d[s + ' city'] = clean_val(item.findChild('city'))
-        d[s + ' nation'] = clean_val(item.findChild('nation'))
+        try:
+            s = item.findChild('name').text
+            d[s + ' neighborhood'] = clean_val(item.findChild('neighborhood'))
+            d[s + ' city'] = clean_val(item.findChild('city'))
+            d[s + ' nation'] = clean_val(item.findChild('nation'))
+        except:
+            print "Didn't work for " + str(item)
     
     return pandas.Series(d, name = regionid)
 
@@ -145,8 +148,14 @@ def aggregate_city_data(n, zwsid):
                   'state': state_abreviation(state), 
                   'city':city}
         df_list.append(regional_data(params))
-
-    return pandas.concat(df_list, axis = 0)
+    
+    region_df = pandas.concat(df_list, axis = 0)
+    
+    d = {}
+    for regionid in region_df.index:
+        d[regionid] = demographics_from_id(regionid, zwsid)
+    dg_df = pandas.DataFrame(d)
+    return region_df.join(dg_df)
 
 def regional_data(param_dict):
     """
