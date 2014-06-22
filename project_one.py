@@ -63,11 +63,26 @@ def demographics_from_id(regionid, zwsid):
         all of the pertinent data is housed, so that tag is used
         below for the :meth:`BeautifulSoup.findChildren()` below
     """
+    def clean_val(tag):
+        #Helper function for empty tags
+        if tag == None:
+            return None
+        else:
+            return tag.text
+
     params = {'zws-id':zwsid, 'regionid': regionid}
     url = 'http://www.zillow.com/webservice/GetDemographics.htm'
     socket = requests.get(url, params = params)
     soup = bs4.BeautifulSoup(socket.content)
-    data = soup.findChild('table')
+    data = soup.findChild('attribute')
+    d = {}
+    for item in data:
+        s = item.findChild('name').text
+        d[s + ' neighborhood'] = clean_val(item.findChild('neighborhood'))
+        d[s + ' city'] = clean_val(item.findChild('city'))
+        d[s + ' nation'] = clean_val(item.findChild('nation'))
+    
+    return pandas.Series(d, name = regionid)
 
 
 def extract_tags(tag_list):
