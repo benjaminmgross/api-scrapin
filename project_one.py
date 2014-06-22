@@ -82,9 +82,9 @@ def demographics_from_id(regionid, zwsid):
             d[s + ' neighborhood'] = clean_val(item.findChild('neighborhood'))
             d[s + ' city'] = clean_val(item.findChild('city'))
             d[s + ' nation'] = clean_val(item.findChild('nation'))
-        except:
-            print "Didn't work for " + str(item)
-    
+        except Exception:
+            pass
+
     return pandas.Series(d, name = regionid)
 
 
@@ -154,7 +154,10 @@ def aggregate_city_data(n, zwsid):
     d = {}
     for regionid in region_df.index:
         d[regionid] = demographics_from_id(regionid, zwsid)
-    dg_df = pandas.DataFrame(d)
+    
+    import pdb
+    pdb.set_trace()
+    dg_df = pandas.DataFrame(d).transpose()
     return region_df.join(dg_df)
 
 def regional_data(param_dict):
