@@ -38,6 +38,38 @@ import state_dict
 import bs4
 from collections import Counter
 
+def demographics_from_id(regionid, zwsid):
+    """
+    Given a region id (which was extracted using the 
+    :meth:`regional_data` or :meth:`aggregate_city_data` functions) and
+    a Zillow OAthToken, return all of the demographic data for that 
+    ``region-id``
+
+    :ARGS:
+
+        regionid: :class:`string` of the region id
+
+        zwsid: :class:`string` of the Zillow OAthToken
+
+    :RETURNS:
+
+        :class:`pandas.Series` with all pertinent demographic 
+        information for that regionid
+
+
+    .. note:: findChildren parameter, attribute
+    
+        In the demographics API call, the 'attribute' tag is where 
+        all of the pertinent data is housed, so that tag is used
+        below for the :meth:`BeautifulSoup.findChildren()` below
+    """
+    params = {'zws-id':zwsid, 'regionid': regionid}
+    url = 'http://www.zillow.com/webservice/GetDemographics.htm'
+    socket = requests.get(url, params = params)
+    soup = bs4.BeautifulSoup(socket.content)
+    data = soup.findChild('table')
+
+
 def extract_tags(tag_list):
     """
     Take in a list of :class:`bs4.element.Tag` and returns the
