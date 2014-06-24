@@ -6,4 +6,4 @@ setup(name='api-scrapin',
       author='Benjamin M. Gross',
       author_email='benjaminMgross@gmail.com',
       url='https://github.com/benjaminmgross/api-scrapin',
-      packages=['api-scrapin'])
+      packages=['api_scrapin'])
