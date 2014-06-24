@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>api-scrapin &mdash; api-scrapin 0.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="api-scrapin 0.0.1 documentation" href="index.html" />
+    <link rel="prev" title="Welcome to api-scrapin’s documentaiton" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to api-scrapin’s documentaiton"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">api-scrapin 0.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to api-scrapin&#8217;s documentaiton</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/my_file.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-api_scrapin.api_scrapin">
+<span id="api-scrapin"></span><h1>api-scrapin<a class="headerlink" href="#module-api_scrapin.api_scrapin" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-api_scrapin.py"></span><p>An aggregator for different apsects of the Zillow.com API, some 
+tidbits of Wikipedia, and of course, shitloads of <tt class="docutils literal"><span class="pre">pandas.</span></tt>  See
+the <tt class="docutils literal"><span class="pre">README.md</span></tt> file for examples and guided tutorials</p>
+<dl class="function">
+<dt id="api_scrapin.api_scrapin.aggregate_city_data">
+<tt class="descclassname">api_scrapin.api_scrapin.</tt><tt class="descname">aggregate_city_data</tt><big>(</big><em>n</em>, <em>zwsid</em><big>)</big><a class="headerlink" href="#api_scrapin.api_scrapin.aggregate_city_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return joined dataframes from the <tt class="docutils literal"><span class="pre">n</span></tt> biggest cities in the 
+United States and joins region-id&#8217;s for all of those cities
+along with demographic data for all of those cities</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">ARGS:</th><td class="field-body"><p class="first">n: <tt class="xref py py-class docutils literal"><span class="pre">int</span></tt> of the number of cities you would like to 
+return aggregated data for</p>
+<p>zwsid: <tt class="xref py py-class docutils literal"><span class="pre">string</span></tt> your API key from <a class="reference external" href="http://www.zillow.com">Zillow</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">RETURNS:</th><td class="field-body"><p class="first last">a <tt class="xref py py-class docutils literal"><span class="pre">pandas.DataFrame</span></tt> with all of the neighborhoods,
+median housing prices, longitude &amp; latitude, etc.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="api_scrapin.api_scrapin.config_dict">
+<tt class="descclassname">api_scrapin.api_scrapin.</tt><tt class="descname">config_dict</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#api_scrapin.api_scrapin.config_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load your configuration file to do the API calls into a dictionary.
+The remainder of the functions assume a{&#8216;website&#8217;:{&#8216;username&#8217;: ,
+&#8216;OAthToken&#8217;: }} pairing</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="api_scrapin.api_scrapin.demographics_from_id">
+<tt class="descclassname">api_scrapin.api_scrapin.</tt><tt class="descname">demographics_from_id</tt><big>(</big><em>regionid</em>, <em>zwsid</em><big>)</big><a class="headerlink" href="#api_scrapin.api_scrapin.demographics_from_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a region id (which was extracted using the 
+<tt class="xref py py-meth docutils literal"><span class="pre">regional_data()</span></tt> or <tt class="xref py py-meth docutils literal"><span class="pre">aggregate_city_data()</span></tt> functions) and
+a Zillow OAthToken, return all of the demographic data for that 
+<tt class="docutils literal"><span class="pre">region-id</span></tt></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">ARGS:</th><td class="field-body"><p class="first">regionid: <tt class="xref py py-class docutils literal"><span class="pre">string</span></tt> of the region id</p>
+<p>zwsid: <tt class="xref py py-class docutils literal"><span class="pre">string</span></tt> of the Zillow OAthToken</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">RETURNS:</th><td class="field-body"><p class="first last"><tt class="xref py py-class docutils literal"><span class="pre">pandas.Series</span></tt> with all pertinent demographic 
+information for that regionid</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>findChildren parameter, attribute</p>
+<p class="last">In the demographics API call, the &#8216;attribute&#8217; tag is where 
+all of the pertinent data is housed, so that tag is used
+below for the <tt class="xref py py-meth docutils literal"><span class="pre">BeautifulSoup.findChildren()</span></tt> below</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="api_scrapin.api_scrapin.extract_tags">
+<tt class="descclassname">api_scrapin.api_scrapin.</tt><tt class="descname">extract_tags</tt><big>(</big><em>tag_list</em><big>)</big><a class="headerlink" href="#api_scrapin.api_scrapin.extract_tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Take in a list of <tt class="xref py py-class docutils literal"><span class="pre">bs4.element.Tag</span></tt> and returns the
+Union of the majority of <tt class="docutils literal"><span class="pre">tag.names</span></tt> as a dictionary to then
+iterate over</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">ARGS:</th><td class="field-body"><p class="first">tag_list: <tt class="xref py py-class docutils literal"><span class="pre">list</span></tt> of <cite>bs4.element.Tag</cite></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">RETURNS:</th><td class="field-body"><p class="first">key: <tt class="xref py py-class docutils literal"><span class="pre">string</span></tt> the name of the tag that should be 
+used as the &#8220;key&#8221; (ie appears in all of the list values)</p>
+<p class="last">tags: <tt class="xref py py-class docutils literal"><span class="pre">list</span></tt> the remaining tags that should be used to
+to append to the dictionary</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="api_scrapin.api_scrapin.largest_cities">
+<tt class="descclassname">api_scrapin.api_scrapin.</tt><tt class="descname">largest_cities</tt><big>(</big><em>n=15</em><big>)</big><a class="headerlink" href="#api_scrapin.api_scrapin.largest_cities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Access the wikipedia page <a class="reference external" href="http://en.wikipedia.org/wiki/List_of_United_States_cities_by_population">List of US Cities by Population</a>
+and pull in the n largest into <tt class="xref py py-class docutils literal"><span class="pre">pandas.DataFrame</span></tt></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">ARGS:</th><td class="field-body">n: class:<cite>int</cite> of the number of the largest cities you would
+like returns</td>
+</tr>
+<tr class="field-even field"><th class="field-name">RETURNS:</th><td class="field-body"><tt class="xref py py-class docutils literal"><span class="pre">pandas.DataFrame</span></tt> of the <tt class="docutils literal"><span class="pre">n</span></tt> largest cities with
+columns <tt class="docutils literal"><span class="pre">['2013</span> <span class="pre">rank',</span> <span class="pre">'City',</span> <span class="pre">'State',</span> <span class="pre">'2013</span> <span class="pre">estimate']</span></tt></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="api_scrapin.api_scrapin.regional_data">
+<tt class="descclassname">api_scrapin.api_scrapin.</tt><tt class="descname">regional_data</tt><big>(</big><em>param_dict</em><big>)</big><a class="headerlink" href="#api_scrapin.api_scrapin.regional_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls the <a class="reference external" href="http://www.zillow.com/howto/api/GetRegionChildren.htm">GetRegionChildren API</a> from
+Zillow, with a <tt class="xref py py-class docutils literal"><span class="pre">dict</span></tt> of parameters</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">ARGS:</th><td class="field-body"><p class="first">param_dict: <tt class="xref py py-class docutils literal"><span class="pre">dictionary</span></tt> with the following parameters</p>
+<blockquote class="last">
+<div><p>{&#8216;zws-id&#8217;, &#8216;state&#8217;, &#8216;city&#8217;}</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="api_scrapin.api_scrapin.state_abreviation">
+<tt class="descclassname">api_scrapin.api_scrapin.</tt><tt class="descname">state_abreviation</tt><big>(</big><em>state_name</em><big>)</big><a class="headerlink" href="#api_scrapin.api_scrapin.state_abreviation" title="Permalink to this definition">¶</a></dt>
+<dd><p>The state dictionary has pairings (&#8216;abreviation&#8217;, &#8216;state&#8217;), this
+returs the abreviation for a given value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">ARGS:</th><td class="field-body">state_name: <tt class="xref py py-class docutils literal"><span class="pre">string</span></tt> of the state</td>
+</tr>
+<tr class="field-even field"><th class="field-name">RETURNS:</th><td class="field-body"><tt class="xref py py-class docutils literal"><span class="pre">string</span></tt> of the abbreviation of the state</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to api-scrapin’s documentaiton"
+             >previous</a> |</li>
+        <li><a href="index.html">api-scrapin 0.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Benjamin M. Gross.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

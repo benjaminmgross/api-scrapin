@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # encoding: utf-8
 """
-project_one.py
+.. module:: api_scrapin.py
 
-Created by Benjamin M. Gross 6.20.2014
+.. moduleauthor:: Benjamin M. Gross <benjaminMgross@gmail.com>
 
 An aggregator for different apsects of the Zillow.com API, some 
 tidbits of Wikipedia, and of course, shitloads of ``pandas.``  See
@@ -72,7 +72,7 @@ def demographics_from_id(regionid, zwsid):
 def extract_tags(tag_list):
     """
     Take in a list of :class:`bs4.element.Tag` and returns the
-    Union of the majority of tag.names as a dictionary to then
+    Union of the majority of ``tag.names`` as a dictionary to then
     iterate over
 
     :ARGS:
@@ -107,13 +107,16 @@ def extract_tags(tag_list):
 
 def aggregate_city_data(n, zwsid):
     """
-    Return joined dataframes from the 'n' biggest cities in the 
-    United States
+    Return joined dataframes from the ``n`` biggest cities in the 
+    United States and joins region-id's for all of those cities
+    along with demographic data for all of those cities
     
     :ARGS:
      
         n: :class:`int` of the number of cities you would like to 
         return aggregated data for
+
+        zwsid: :class:`string` your API key from `Zillow <http://www.zillow.com>`_
     
     :RETURNS:
 
@@ -141,8 +144,9 @@ def aggregate_city_data(n, zwsid):
 
 def regional_data(param_dict):
     """
-    Calls the `GetRegionChildren API_
-    <http://www.zillow.com/howto/api/GetRegionChildren.htm>`
+    Calls the `GetRegionChildren API
+    <http://www.zillow.com/howto/api/GetRegionChildren.htm>`_ from
+    Zillow, with a :class:`dict` of parameters
 
     :ARGS:
 
@@ -172,8 +176,16 @@ def regional_data(param_dict):
 
 def state_abreviation(state_name):
     """
-    The state dictionary has pairings ('abreviatio', 'state'), this
+    The state dictionary has pairings ('abreviation', 'state'), this
     returs the abreviation for a given value
+
+    :ARGS:
+
+        state_name: :class:`string` of the state
+
+    :RETURNS:
+
+        :class:`string` of the abbreviation of the state
     """
     for key, value in state_dict.states.iteritems():
         if value == state_name:
@@ -182,9 +194,21 @@ def state_abreviation(state_name):
 
 def largest_cities(n = 15):
     """
-    Access the wikipedia page `List of US Cities by Population_
-    <http://en.wikipedia.org/wiki/List_of_United_States_cities_by_population>`
+    Access the wikipedia page `List of US Cities by Population
+    <http://en.wikipedia.org/wiki/List_of_United_States_cities_by_population>`_
     and pull in the n largest into :class:`pandas.DataFrame`
+
+    :ARGS:
+
+        n: class:`int` of the number of the largest cities you would
+        like returns
+
+    :RETURNS:
+
+        :class:`pandas.DataFrame` of the ``n`` largest cities with
+        columns ``['2013 rank', 'City', 'State', '2013 estimate']``
+
+    
     """
     url = 'http://en.wikipedia.org/wiki/List_of_United_States_cities_by_population'
     table_list = pandas.read_html(url)
