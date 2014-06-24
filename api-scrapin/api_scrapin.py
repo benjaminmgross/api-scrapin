@@ -55,7 +55,7 @@ def demographics_from_id(regionid, zwsid):
     url = 'http://www.zillow.com/webservice/GetDemographics.htm'
     socket = requests.get(url, params = params)
     soup = bs4.BeautifulSoup(socket.content)
-    data = soup.findChild('attribute')
+    data = soup.findChildren('attribute')
     d = {}
     for item in data:
         try:
