@@ -1,0 +1,232 @@
+city-state,city-state
+id,id
+latitude,latitude
+longitude,longitude
+name,name
+url,url
+zindex,zindex
+0s city,0s city
+0s nation,0s nation
+0s neighborhood,0s neighborhood
+1-Yr. Change city,1-Yr. Change city
+1-Yr. Change nation,1-Yr. Change nation
+1-Yr. Change neighborhood,1-Yr. Change neighborhood
+10-20min city,10-20min city
+10-20min nation,10-20min nation
+10-20min neighborhood,10-20min neighborhood
+1000-1400sqft city,1000-1400sqft city
+1000-1400sqft nation,1000-1400sqft nation
+1000-1400sqft neighborhood,1000-1400sqft neighborhood
+10s city,10s city
+10s nation,10s nation
+10s neighborhood,10s neighborhood
+1400-1800sqft city,1400-1800sqft city
+1400-1800sqft nation,1400-1800sqft nation
+1400-1800sqft neighborhood,1400-1800sqft neighborhood
+1800-2400sqft city,1800-2400sqft city
+1800-2400sqft nation,1800-2400sqft nation
+1800-2400sqft neighborhood,1800-2400sqft neighborhood
+1900-1919 city,1900-1919 city
+1900-1919 nation,1900-1919 nation
+1900-1919 neighborhood,1900-1919 neighborhood
+1920-1939 city,1920-1939 city
+1920-1939 nation,1920-1939 nation
+1920-1939 neighborhood,1920-1939 neighborhood
+1940-1959 city,1940-1959 city
+1940-1959 nation,1940-1959 nation
+1940-1959 neighborhood,1940-1959 neighborhood
+1960-1979 city,1960-1979 city
+1960-1979 nation,1960-1979 nation
+1960-1979 neighborhood,1960-1979 neighborhood
+1980-1999 city,1980-1999 city
+1980-1999 nation,1980-1999 nation
+1980-1999 neighborhood,1980-1999 neighborhood
+20-30min city,20-30min city
+20-30min nation,20-30min nation
+20-30min neighborhood,20-30min neighborhood
+20s city,20s city
+20s nation,20s nation
+20s neighborhood,20s neighborhood
+2400-3600sqft city,2400-3600sqft city
+2400-3600sqft nation,2400-3600sqft nation
+2400-3600sqft neighborhood,2400-3600sqft neighborhood
+30-45min city,30-45min city
+30-45min nation,30-45min nation
+30-45min neighborhood,30-45min neighborhood
+30s city,30s city
+30s nation,30s nation
+30s neighborhood,30s neighborhood
+40s city,40s city
+40s nation,40s nation
+40s neighborhood,40s neighborhood
+45-60min city,45-60min city
+45-60min nation,45-60min nation
+45-60min neighborhood,45-60min neighborhood
+50s city,50s city
+50s nation,50s nation
+50s neighborhood,50s neighborhood
+60s city,60s city
+60s nation,60s nation
+60s neighborhood,60s neighborhood
+<1000sqft city,<1000sqft city
+<1000sqft nation,<1000sqft nation
+<1000sqft neighborhood,<1000sqft neighborhood
+<10min city,<10min city
+<10min nation,<10min nation
+<10min neighborhood,<10min neighborhood
+<1900 city,<1900 city
+<1900 nation,<1900 nation
+<1900 neighborhood,<1900 neighborhood
+>2000 city,>2000 city
+>2000 nation,>2000 nation
+>2000 neighborhood,>2000 neighborhood
+>3600sqft city,>3600sqft city
+>3600sqft nation,>3600sqft nation
+>3600sqft neighborhood,>3600sqft neighborhood
+>=60min city,>=60min city
+>=60min nation,>=60min nation
+>=60min neighborhood,>=60min neighborhood
+>=70s city,>=70s city
+>=70s nation,>=70s nation
+>=70s neighborhood,>=70s neighborhood
+Average Commute Time (Minutes) city,Average Commute Time (Minutes) city
+Average Commute Time (Minutes) nation,Average Commute Time (Minutes) nation
+Average Commute Time (Minutes) neighborhood,Average Commute Time (Minutes) neighborhood
+Average Household Size city,Average Household Size city
+Average Household Size nation,Average Household Size nation
+Average Household Size neighborhood,Average Household Size neighborhood
+Avg. Year Built city,Avg. Year Built city
+Avg. Year Built nation,Avg. Year Built nation
+Avg. Year Built neighborhood,Avg. Year Built neighborhood
+Condo city,Condo city
+Condo nation,Condo nation
+Condo neighborhood,Condo neighborhood
+Condos city,Condos city
+Condos nation,Condos nation
+Condos neighborhood,Condos neighborhood
+Divorced-Female city,Divorced-Female city
+Divorced-Female nation,Divorced-Female nation
+Divorced-Female neighborhood,Divorced-Female neighborhood
+Divorced-Male city,Divorced-Male city
+Divorced-Male nation,Divorced-Male nation
+Divorced-Male neighborhood,Divorced-Male neighborhood
+Foreclosures city,Foreclosures city
+Foreclosures nation,Foreclosures nation
+Foreclosures neighborhood,Foreclosures neighborhood
+Homes For Sale By Owner city,Homes For Sale By Owner city
+Homes For Sale By Owner nation,Homes For Sale By Owner nation
+Homes For Sale By Owner neighborhood,Homes For Sale By Owner neighborhood
+Homes For Sale city,Homes For Sale city
+Homes For Sale nation,Homes For Sale nation
+Homes For Sale neighborhood,Homes For Sale neighborhood
+Homes Recently Sold city,Homes Recently Sold city
+Homes Recently Sold nation,Homes Recently Sold nation
+Homes Recently Sold neighborhood,Homes Recently Sold neighborhood
+Homes With Kids city,Homes With Kids city
+Homes With Kids nation,Homes With Kids nation
+Homes With Kids neighborhood,Homes With Kids neighborhood
+Married-Female city,Married-Female city
+Married-Female nation,Married-Female nation
+Married-Female neighborhood,Married-Female neighborhood
+Married-Male city,Married-Male city
+Married-Male nation,Married-Male nation
+Married-Male neighborhood,Married-Male neighborhood
+Median 2-Bedroom Home Value city,Median 2-Bedroom Home Value city
+Median 2-Bedroom Home Value nation,Median 2-Bedroom Home Value nation
+Median 2-Bedroom Home Value neighborhood,Median 2-Bedroom Home Value neighborhood
+Median 3-Bedroom Home Value city,Median 3-Bedroom Home Value city
+Median 3-Bedroom Home Value nation,Median 3-Bedroom Home Value nation
+Median 3-Bedroom Home Value neighborhood,Median 3-Bedroom Home Value neighborhood
+Median 4-Bedroom Home Value city,Median 4-Bedroom Home Value city
+Median 4-Bedroom Home Value nation,Median 4-Bedroom Home Value nation
+Median 4-Bedroom Home Value neighborhood,Median 4-Bedroom Home Value neighborhood
+Median Age city,Median Age city
+Median Age nation,Median Age nation
+Median Age neighborhood,Median Age neighborhood
+Median Condo Value city,Median Condo Value city
+Median Condo Value nation,Median Condo Value nation
+Median Condo Value neighborhood,Median Condo Value neighborhood
+Median Home Size (Sq. Ft.) city,Median Home Size (Sq. Ft.) city
+Median Home Size (Sq. Ft.) nation,Median Home Size (Sq. Ft.) nation
+Median Home Size (Sq. Ft.) neighborhood,Median Home Size (Sq. Ft.) neighborhood
+Median Household Income city,Median Household Income city
+Median Household Income nation,Median Household Income nation
+Median Household Income neighborhood,Median Household Income neighborhood
+Median List Price Per Sq Ft city,Median List Price Per Sq Ft city
+Median List Price Per Sq Ft nation,Median List Price Per Sq Ft nation
+Median List Price Per Sq Ft neighborhood,Median List Price Per Sq Ft neighborhood
+Median List Price city,Median List Price city
+Median List Price nation,Median List Price nation
+Median List Price neighborhood,Median List Price neighborhood
+Median Sale Price city,Median Sale Price city
+Median Sale Price nation,Median Sale Price nation
+Median Sale Price neighborhood,Median Sale Price neighborhood
+Median Single Family Home Value city,Median Single Family Home Value city
+Median Single Family Home Value nation,Median Single Family Home Value nation
+Median Single Family Home Value neighborhood,Median Single Family Home Value neighborhood
+Median Value Per Sq Ft city,Median Value Per Sq Ft city
+Median Value Per Sq Ft nation,Median Value Per Sq Ft nation
+Median Value Per Sq Ft neighborhood,Median Value Per Sq Ft neighborhood
+New Construction city,New Construction city
+New Construction nation,New Construction nation
+New Construction neighborhood,New Construction neighborhood
+NoKids city,NoKids city
+NoKids nation,NoKids nation
+NoKids neighborhood,NoKids neighborhood
+Other city,Other city
+Other nation,Other nation
+Other neighborhood,Other neighborhood
+Own city,Own city
+Own nation,Own nation
+Own neighborhood,Own neighborhood
+Owners city,Owners city
+Owners nation,Owners nation
+Owners neighborhood,Owners neighborhood
+Percent Homes Decreasing city,Percent Homes Decreasing city
+Percent Homes Decreasing nation,Percent Homes Decreasing nation
+Percent Homes Decreasing neighborhood,Percent Homes Decreasing neighborhood
+Percent Listing Price Reduction city,Percent Listing Price Reduction city
+Percent Listing Price Reduction nation,Percent Listing Price Reduction nation
+Percent Listing Price Reduction neighborhood,Percent Listing Price Reduction neighborhood
+Property Tax city,Property Tax city
+Property Tax nation,Property Tax nation
+Property Tax neighborhood,Property Tax neighborhood
+Rent city,Rent city
+Rent nation,Rent nation
+Rent neighborhood,Rent neighborhood
+Renters city,Renters city
+Renters nation,Renters nation
+Renters neighborhood,Renters neighborhood
+Single Females city,Single Females city
+Single Females nation,Single Females nation
+Single Females neighborhood,Single Females neighborhood
+Single Males city,Single Males city
+Single Males nation,Single Males nation
+Single Males neighborhood,Single Males neighborhood
+Single-Family Homes city,Single-Family Homes city
+Single-Family Homes nation,Single-Family Homes nation
+Single-Family Homes neighborhood,Single-Family Homes neighborhood
+Single-Female city,Single-Female city
+Single-Female nation,Single-Female nation
+Single-Female neighborhood,Single-Female neighborhood
+Single-Male city,Single-Male city
+Single-Male nation,Single-Male nation
+Single-Male neighborhood,Single-Male neighborhood
+SingleFamily city,SingleFamily city
+SingleFamily nation,SingleFamily nation
+SingleFamily neighborhood,SingleFamily neighborhood
+Turnover (Sold Within Last Yr.) city,Turnover (Sold Within Last Yr.) city
+Turnover (Sold Within Last Yr.) nation,Turnover (Sold Within Last Yr.) nation
+Turnover (Sold Within Last Yr.) neighborhood,Turnover (Sold Within Last Yr.) neighborhood
+Widowed-Female city,Widowed-Female city
+Widowed-Female nation,Widowed-Female nation
+Widowed-Female neighborhood,Widowed-Female neighborhood
+Widowed-Male city,Widowed-Male city
+Widowed-Male nation,Widowed-Male nation
+Widowed-Male neighborhood,Widowed-Male neighborhood
+WithKids city,WithKids city
+WithKids nation,WithKids nation
+WithKids neighborhood,WithKids neighborhood
+Zillow Home Value Index city,Zillow Home Value Index city
+Zillow Home Value Index nation,Zillow Home Value Index nation
+Zillow Home Value Index neighborhood,Zillow Home Value Index neighborhood
