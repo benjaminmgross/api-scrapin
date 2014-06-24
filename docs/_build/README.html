@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>README.md &mdash; api-scrapin 0.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="api-scrapin 0.0.1 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="index.html">api-scrapin 0.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">README.md</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#dependencies">Dependencies:</a></li>
+<li><a class="reference internal" href="#installation">Installation:</a></li>
+<li><a class="reference internal" href="#up-and-running-in-5-steps">Up and Running in 5 Steps</a><ul>
+<li><a class="reference internal" href="#step-1-get-yourself-a-zillow-api-token">Step 1: Get Yourself a Zillow API Token</a></li>
+<li><a class="reference internal" href="#step-2-install-the-package">Step 2: Install the Package</a></li>
+<li><a class="reference internal" href="#step-3-let-er-rip">Step 3: Let &#8216;er Rip</a></li>
+<li><a class="reference internal" href="#step-4-do-some-cool-analysis">Step 4: Do some cool analysis</a></li>
+<li><a class="reference internal" href="#step-5-write-me-an-email-and-tell-me-you-love-me">Step 5: Write me an email and tell me you love me</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#to-do">To Do:</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/README.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="readme-md">
+<h1>README.md<a class="headerlink" href="#readme-md" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Zillow aggregates some very interesting data, especially if you&#8217;re
+interested aspects of home prices, demographics such as income,
+education, etc. &#8211; not to mention all of this information is provided
+with latitude and longitude coordinates to boot. This light-weight
+module takes advantage of that gives you the ability</p>
+<ol class="arabic simple">
+<li>Take the &#8216;n&#8217; largest cities in the US (data scraped from
+<a class="reference external" href="http://en.wikipedia.org/wiki/List_of_United_States_cities_by_population">Wikipedia</a>)</li>
+<li>Go to Zillow&#8217;s API, &amp; extract <tt class="docutils literal"><span class="pre">regionid</span></tt>&#8216;s (of which there are
+several hundred for any metropolitan city) along with some
+interesting Zillow Index Data</li>
+<li>Join that data with demographic data, such as median house prices,
+cost per square foot, median income, etc. <strong>all</strong> provided at a
+&#8220;neighborhood&#8221;, &#8220;city&#8221;, &amp; &#8220;state&#8221; level.</li>
+<li>Put it all into Jesus&#8217; favorite data structure...
+<a class="reference external" href="http://pandas.pydata.org">pandas</a>, to do some more interesting
+data analysis</li>
+</ol>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies:<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://docs.python-requests.org/en/latest/">Requests</a>: Leveraged
+heavily to hit the Zillow API, as well as pass the API arguments</li>
+<li><a class="reference external" href="http://www.crummy.com/software/BeautifulSoup/">BeautifulSoup</a>:
+Specifically <tt class="docutils literal"><span class="pre">bs4</span></tt>, for parsing the horrific,
+sadder-than-baby-tears expunged <tt class="docutils literal"><span class="pre">xml</span></tt> from the Zillow API</li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h2>Installation:<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre>$ git clone git@github.com:benjaminmgross/api-scrapin.git #assuming ssh install
+$ cd api-scrapin
+$ python setup.py install
+</pre></div>
+</div>
+<p>I know what you&#8217;re thinking, &#8220;why can&#8217;t I <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span></tt> it?&#8221; Stop
+whining! ... fine, I haven&#8217;t figured out how to do that yet with
+packages, but I&#8217;m working on it...</p>
+</div>
+<div class="section" id="up-and-running-in-5-steps">
+<h2>Up and Running in 5 Steps<a class="headerlink" href="#up-and-running-in-5-steps" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="step-1-get-yourself-a-zillow-api-token">
+<h3>Step 1: Get Yourself a Zillow API Token<a class="headerlink" href="#step-1-get-yourself-a-zillow-api-token" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Go to <a class="reference external" href="https://www.zillow.com/webservice/Registration.htm">Zillow&#8217;s Registration
+Page</a> where
+you will be prompted to create a login.</li>
+<li>After you create a login, go to the <a class="reference external" href="http://www.zillow.com/howto/api/APIOverview.htm">Zillow API Overview
+Page</a></li>
+<li>Click on the <a class="reference external" href="http://www.zillow.com/webservice/Registration.htm">get a
+ZWSID</a></li>
+<li>Fill out the information, click all of the check boxes of different
+APIs you might wannt, and then get ready to receive your Zillow API
+key in your inbox!</li>
+</ol>
+</div>
+<div class="section" id="step-2-install-the-package">
+<h3>Step 2: Install the Package<a class="headerlink" href="#step-2-install-the-package" title="Permalink to this headline">¶</a></h3>
+<p>See <a class="reference external" href="#installation">installation instructions</a></p>
+</div>
+<div class="section" id="step-3-let-er-rip">
+<h3>Step 3: Let &#8216;er Rip<a class="headerlink" href="#step-3-let-er-rip" title="Permalink to this headline">¶</a></h3>
+<p>The crux of what makes this package special is the ability to merge what
+are called &#8220;region-id&#8221; and cities.</p>
+<p>For instance, there are 267 <tt class="docutils literal"><span class="pre">region-id</span></tt>&#8216;s around the New York City
+area, and for each one of those <tt class="docutils literal"><span class="pre">region-id</span></tt>&#8216;s, there&#8217;s extensive
+demographic information (such as income, commute times, etc), but this
+information is never provided &#8220;together&#8221; &#8211; as in, here&#8217;s the city, all
+of it&#8217;s <tt class="docutils literal"><span class="pre">region-id</span></tt>&#8216;s, and extensive demographic data about those
+<tt class="docutils literal"><span class="pre">region-id</span></tt>&#8216;s / cities.</p>
+<p>You can try to figure out out how to join all that data from disparate
+Zillow API&#8217;s... or you can just use this package.</p>
+</div>
+<div class="section" id="step-4-do-some-cool-analysis">
+<h3>Step 4: Do some cool analysis<a class="headerlink" href="#step-4-do-some-cool-analysis" title="Permalink to this headline">¶</a></h3>
+<p>You got this one covered...</p>
+</div>
+<div class="section" id="step-5-write-me-an-email-and-tell-me-you-love-me">
+<h3>Step 5: Write <a class="reference external" href="mailto&#64;benjaminmgross&#64;gmail.com">me an email</a> and tell me you love me<a class="headerlink" href="#step-5-write-me-an-email-and-tell-me-you-love-me" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="to-do">
+<h2>To Do:<a class="headerlink" href="#to-do" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>[STRIKEOUT:Complete package installation so package can be installed]</li>
+<li>[STRIKEOUT:Finish <tt class="docutils literal"><span class="pre">README.md</span></tt>]</li>
+<li>Generate documentation with Sphynx</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="index.html">api-scrapin 0.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Benjamin M. Gross.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
