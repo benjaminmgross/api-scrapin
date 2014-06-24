@@ -38,17 +38,21 @@ See [installation instructions](#installation)
 
 ###Step 3: Let 'er Rip
 
-The crux of what makes this package special is the ability to merge, what's called "region-id" and cities.  For instance, you probably don't know that there are 267 `region-id`'s around the New York City area.  However, by simply typing "New York, NY" into the "Regional API", you get back all of the different `region-id`'s.  You can then **use that regional-id** as a parameter for your query, and then get back even cooler stuff like, median household income, price per square foot... even average level of education. 
+The crux of what makes this package special is the ability to merge what are called "region-id" and cities.
+
+For instance, there are 267 `region-id`'s around the New York City area, and for each one of those `region-id`'s, there's extensive demographic information (such as income, commute times, etc), but this information is never provided "together" -- as in, here's the city, all of it's `region-id`'s, and extensive demographic data about those `region-id`'s / cities.
+
+You can try to figure out out how to join all that data from disparate Zillow API's... or you can just use this package.
 
 ###Step 4: Do some cool analysis
 
-You got this one covered
+You got this one covered...
 
 ###Step 5: Write [me an email](mailto@benjaminmgross@gmail.com) and tell me you love me
 
 ##<a name="to-do"></a>To Do:
 
-- Complete package installation so package can be installed
-- Finish `README.md`
+- ~~Complete package installation so package can be installed~~
+- ~~Finish `README.md`~~
 - Generate documentation with Sphynx
 
