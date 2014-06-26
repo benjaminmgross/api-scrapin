@@ -102,25 +102,27 @@
             
   <div class="section" id="module-api_scrapin.api_scrapin">
 <span id="api-scrapin"></span><h1>api-scrapin<a class="headerlink" href="#module-api_scrapin.api_scrapin" title="Permalink to this headline">¶</a></h1>
-<p>project_one.py</p>
-<p>Created by Benjamin M. Gross 6.20.2014</p>
-<p>An aggregator for different apsects of the Zillow.com API, some 
+<span class="target" id="module-api_scrapin.py"></span><p>An aggregator for different apsects of the Zillow.com API, some 
 tidbits of Wikipedia, and of course, shitloads of <tt class="docutils literal"><span class="pre">pandas.</span></tt>  See
 the <tt class="docutils literal"><span class="pre">README.md</span></tt> file for examples and guided tutorials</p>
 <dl class="function">
 <dt id="api_scrapin.api_scrapin.aggregate_city_data">
 <tt class="descclassname">api_scrapin.api_scrapin.</tt><tt class="descname">aggregate_city_data</tt><big>(</big><em>n</em>, <em>zwsid</em><big>)</big><a class="headerlink" href="#api_scrapin.api_scrapin.aggregate_city_data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return joined dataframes from the &#8216;n&#8217; biggest cities in the 
-United States</p>
+<dd><p>Return joined dataframes from the <tt class="docutils literal"><span class="pre">n</span></tt> biggest cities in the 
+United States and joins region-id&#8217;s for all of those cities
+along with demographic data for all of those cities</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">ARGS:</th><td class="field-body">n: <tt class="xref py py-class docutils literal"><span class="pre">int</span></tt> of the number of cities you would like to 
-return aggregated data for</td>
+<tr class="field-odd field"><th class="field-name">ARGS:</th><td class="field-body"><p class="first">n: <tt class="xref py py-class docutils literal"><span class="pre">int</span></tt> of the number of cities you would like to 
+return aggregated data for</p>
+<p>zwsid: <tt class="xref py py-class docutils literal"><span class="pre">string</span></tt> your API key from <a class="reference external" href="http://www.zillow.com">Zillow</a></p>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">RETURNS:</th><td class="field-body">a <tt class="xref py py-class docutils literal"><span class="pre">pandas.DataFrame</span></tt> with all of the neighborhoods,
-median housing prices, longitude &amp; latitude, etc.</td>
+<tr class="field-even field"><th class="field-name">RETURNS:</th><td class="field-body"><p class="first last">a <tt class="xref py py-class docutils literal"><span class="pre">pandas.DataFrame</span></tt> with all of the neighborhoods,
+median housing prices, longitude &amp; latitude, etc.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -138,7 +140,7 @@ The remainder of the functions assume a{&#8216;website&#8217;:{&#8216;username&#
 <dt id="api_scrapin.api_scrapin.demographics_from_id">
 <tt class="descclassname">api_scrapin.api_scrapin.</tt><tt class="descname">demographics_from_id</tt><big>(</big><em>regionid</em>, <em>zwsid</em><big>)</big><a class="headerlink" href="#api_scrapin.api_scrapin.demographics_from_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given a region id (which was extracted using the 
-<a class="reference internal" href="#api_scrapin.api_scrapin.regional_data" title="api_scrapin.api_scrapin.regional_data"><tt class="xref py py-meth docutils literal"><span class="pre">regional_data()</span></tt></a> or <a class="reference internal" href="#api_scrapin.api_scrapin.aggregate_city_data" title="api_scrapin.api_scrapin.aggregate_city_data"><tt class="xref py py-meth docutils literal"><span class="pre">aggregate_city_data()</span></tt></a> functions) and
+<tt class="xref py py-meth docutils literal"><span class="pre">regional_data()</span></tt> or <tt class="xref py py-meth docutils literal"><span class="pre">aggregate_city_data()</span></tt> functions) and
 a Zillow OAthToken, return all of the demographic data for that 
 <tt class="docutils literal"><span class="pre">region-id</span></tt></p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -168,7 +170,7 @@ below for the <tt class="xref py py-meth docutils literal"><span class="pre">Bea
 <dt id="api_scrapin.api_scrapin.extract_tags">
 <tt class="descclassname">api_scrapin.api_scrapin.</tt><tt class="descname">extract_tags</tt><big>(</big><em>tag_list</em><big>)</big><a class="headerlink" href="#api_scrapin.api_scrapin.extract_tags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Take in a list of <tt class="xref py py-class docutils literal"><span class="pre">bs4.element.Tag</span></tt> and returns the
-Union of the majority of tag.names as a dictionary to then
+Union of the majority of <tt class="docutils literal"><span class="pre">tag.names</span></tt> as a dictionary to then
 iterate over</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -190,16 +192,27 @@ to append to the dictionary</p>
 <dl class="function">
 <dt id="api_scrapin.api_scrapin.largest_cities">
 <tt class="descclassname">api_scrapin.api_scrapin.</tt><tt class="descname">largest_cities</tt><big>(</big><em>n=15</em><big>)</big><a class="headerlink" href="#api_scrapin.api_scrapin.largest_cities" title="Permalink to this definition">¶</a></dt>
-<dd><p>Access the wikipedia page <cite>List of US Cities by Population_
-&lt;http://en.wikipedia.org/wiki/List_of_United_States_cities_by_population&gt;</cite>
+<dd><p>Access the wikipedia page <a class="reference external" href="http://en.wikipedia.org/wiki/List_of_United_States_cities_by_population">List of US Cities by Population</a>
 and pull in the n largest into <tt class="xref py py-class docutils literal"><span class="pre">pandas.DataFrame</span></tt></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">ARGS:</th><td class="field-body">n: class:<cite>int</cite> of the number of the largest cities you would
+like returns</td>
+</tr>
+<tr class="field-even field"><th class="field-name">RETURNS:</th><td class="field-body"><tt class="xref py py-class docutils literal"><span class="pre">pandas.DataFrame</span></tt> of the <tt class="docutils literal"><span class="pre">n</span></tt> largest cities with
+columns <tt class="docutils literal"><span class="pre">['2013</span> <span class="pre">rank',</span> <span class="pre">'City',</span> <span class="pre">'State',</span> <span class="pre">'2013</span> <span class="pre">estimate']</span></tt></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="api_scrapin.api_scrapin.regional_data">
 <tt class="descclassname">api_scrapin.api_scrapin.</tt><tt class="descname">regional_data</tt><big>(</big><em>param_dict</em><big>)</big><a class="headerlink" href="#api_scrapin.api_scrapin.regional_data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calls the <cite>GetRegionChildren API_
-&lt;http://www.zillow.com/howto/api/GetRegionChildren.htm&gt;</cite></p>
+<dd><p>Calls the <a class="reference external" href="http://www.zillow.com/howto/api/GetRegionChildren.htm">GetRegionChildren API</a> from
+Zillow, with a <tt class="xref py py-class docutils literal"><span class="pre">dict</span></tt> of parameters</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -217,8 +230,18 @@ and pull in the n largest into <tt class="xref py py-class docutils literal"><sp
 <dl class="function">
 <dt id="api_scrapin.api_scrapin.state_abreviation">
 <tt class="descclassname">api_scrapin.api_scrapin.</tt><tt class="descname">state_abreviation</tt><big>(</big><em>state_name</em><big>)</big><a class="headerlink" href="#api_scrapin.api_scrapin.state_abreviation" title="Permalink to this definition">¶</a></dt>
-<dd><p>The state dictionary has pairings (&#8216;abreviatio&#8217;, &#8216;state&#8217;), this
+<dd><p>The state dictionary has pairings (&#8216;abreviation&#8217;, &#8216;state&#8217;), this
 returs the abreviation for a given value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">ARGS:</th><td class="field-body">state_name: <tt class="xref py py-class docutils literal"><span class="pre">string</span></tt> of the state</td>
+</tr>
+<tr class="field-even field"><th class="field-name">RETURNS:</th><td class="field-body"><tt class="xref py py-class docutils literal"><span class="pre">string</span></tt> of the abbreviation of the state</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
