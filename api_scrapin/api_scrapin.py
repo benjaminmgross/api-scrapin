@@ -12,7 +12,6 @@ the ``README.md`` file for examples and guided tutorials
 
 import argparse
 import pandas
-import numpy
 import requests
 import yaml
 import state_dict
