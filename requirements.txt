@@ -1,3 +1,5 @@
 bs4>=4.2.1
 requests>=2.3.0
 pandas>=0.13.1
+pyyaml>=3.11
+
